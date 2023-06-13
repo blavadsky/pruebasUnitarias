@@ -1,15 +1,17 @@
-package org.example;
+package appointment;
+
+import users.Doctor.Doctor;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class Appointment {
     private LocalDateTime availableDate;
+    private LocalDateTime dataTime;
     private int id;
-    private static HashMap<Integer, Appointment> appointmentMap = new HashMap<>();
-
+    private Doctor doctor;
+    private boolean paid;
+    private String prescription;
 
     @Override
     public boolean equals(Object o) {
@@ -24,9 +26,6 @@ public class Appointment {
     public int hashCode() {
         return Objects.hash(id, availableDate);
     }
-    public LocalDateTime getAvailableDate() { return availableDate; }
-
-    public void setAvailableDate(LocalDateTime availableDate) { this.availableDate = availableDate; }
 
     public int getId() {
         return id;
@@ -36,10 +35,22 @@ public class Appointment {
         this.id = id;
     }
 
-    public Appointment(int id,LocalDateTime availableDate) {
+    public LocalDateTime getDataTime() {
+        return dataTime;
+    }
+
+
+    public boolean isPaid() { return paid; }
+
+    public void setPaid(boolean paid) { this.paid = paid; }
+
+    public String getPrescription() { return prescription; }
+
+    public void setPrescription(String prescription) { this.prescription = prescription; }
+
+    public Appointment(LocalDateTime availableDate) {
         this.availableDate = availableDate;
         this.id = id;
     }
-
 
 }
